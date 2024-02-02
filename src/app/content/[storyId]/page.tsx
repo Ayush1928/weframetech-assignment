@@ -11,20 +11,8 @@ import {
 import { ChevronLeft, ChevronRight, MoreHorizontal } from 'lucide-react';
 import { stories } from '@/components/StoriesSection';
 import { useParams } from 'next/navigation';
-
-type Story = {
-  id: string;
-  image: string;
-  views: string;
-  headline: string;
-  category: string;
-  date: string;
-  status: string;
-  link: string;
-};
-
+import profilePicture from "../../../../public/profilePicture.jpg"
 interface IPageProps {
-  // story: Story
 }
 
 const Page: React.FunctionComponent<IPageProps> = (props) => {
@@ -35,7 +23,7 @@ const Page: React.FunctionComponent<IPageProps> = (props) => {
     <div className='flex w-full flex-col p-12 bg-white'>
       <div className='flex justify-between items-center pb-4'>
         <div className='flex gap-x-2 items-center'>
-          <Image src={"https://s3-alpha-sig.figma.com/img/afe7/90e5/7f5b1c14f156ccedaf36ebb4be3ae6d5?Expires=1707696000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=W61kIVfQ19SkPQ2u5DmtQAIrT0v02276unX6OpuVwHPPuPATNO3p3lIUMZUaocEvfeR5qLZoY3pWOBIkVeCGDxXX022OZ6miTe8HiulE1Ny7dP3~a1QpuYFuPDbWbbl-aGJvTC1CoLLySNCzkwDzWozsiXzpHaGsSygUSJ-vaqJUPnuQyfe0XunnxDbP78iiBqhmCiMOFSzzl7OhnW5kIaclCMlaxG83TZQJ37VspWTtZOXJZw1vH6gXWM7j4L7h4kGHn7IieuEwdB4RXRgbnJKpE~fUg7pFIK5hNl-CwGF~0cd6YBngsOnPN-0EgQ9m5EQvrioBVUT0cDbMZv7tiQ__"} width={1080} height={1080} alt='Profile Picture' className='rounded-full h-8 w-8 object-cover' />
+          <Image src={profilePicture} width={720} height={480} alt='Profile Picture' className='rounded-full h-8 w-8 object-cover' loading='eager'/>
           <p className='text-lg font-semibold text-[#A0A3BD]'>James Robert</p>
           <p className='text-lg font-semibold text-[#58A4FF]'>Created on {story.date}</p>
         </div>
@@ -55,13 +43,13 @@ const Page: React.FunctionComponent<IPageProps> = (props) => {
         </div>
       </div>
       <div className='flex-grow relative h-[600px]'>
-        <Image src={story.image} width={1000} height={660} alt={story.headline} className='w-full object-cover h-full blur-[3px]' />
+        <Image src={story.image} width={1000} height={660} alt={story.headline} className='w-full object-cover h-full blur-[3px]' loading='eager'/>
         <div className='absolute top-0 left-0 w-full h-full opacity-60 bg-black'></div>
         <div className='absolute top-0 w-full flex justify-center z-[10] h-full py-2 items-center gap-x-8'>
           <button className='bg-[#212121] rounded-md p-1'>
             <ChevronLeft color='white' size={28} />
           </button>
-          <Image src={story.image} width={1000} height={660} alt={story.headline} className='max-w-[450px] object-cover h-full rounded-xl' />
+          <Image src={story.image} width={1000} height={660} alt={story.headline} className='max-w-[450px] object-cover h-full rounded-xl' loading='eager' />
           <button className='bg-[#212121] rounded-md p-1'>
             <ChevronRight color='white' size={28} />
           </button>

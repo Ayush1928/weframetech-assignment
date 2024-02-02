@@ -40,7 +40,7 @@ const ContentOptions: React.FunctionComponent<IContentOptionsProps> = (props) =>
             {options.map((item,index) => (
                 <Link href={item.link} className='bg-white w-5/12 xl:w-1/4 flex px-3 py-4 2xl:px-5 2xl:py-6 gap-x-4 items-center rounded-2xl' key={index}>
                     <div className='bg-[#E8E9FF] rounded-full p-3 2xl:p-4'>
-                        <Image src={item.icon} width={1080} height={1080} alt='Content Option Icon' className='w-5 h-5 2xl:w-7 2xl:h-7'/>
+                        <Image src={item.icon} width={1080} height={1080} alt='Content Option Icon' className='w-5 h-5 2xl:w-7 2xl:h-7' loading='eager' />
                     </div>
                     <div>
                         <h1 className='text-xl 2xl:text-2xl font-semibold'>

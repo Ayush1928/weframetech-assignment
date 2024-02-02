@@ -6,16 +6,16 @@ import { Input } from "@/components/ui/input"
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
 import { Button } from './ui/button';
 import { cn } from '@/lib/utils';
-import { CalendarIcon, Check, ChevronDown, ChevronsDown, ChevronsUpDown } from 'lucide-react';
+import { CalendarIcon, Check, ChevronDown } from 'lucide-react';
 import { Calendar } from "./ui/calendar";
 import {
     Command,
-    CommandEmpty,
     CommandGroup,
-    CommandInput,
     CommandItem,
 } from "@/components/ui/command"
 import Image from "next/image";
+import profileAvatar from "../../public/profileAvatar.jpg"
+
 interface ITopbarProps {
 }
 
@@ -30,15 +30,15 @@ const Topbar: React.FunctionComponent<ITopbarProps> = (props) => {
 
     React.useEffect(() => {
         const handleResize = () => {
-          setWindowWidth(window.innerWidth);
+            setWindowWidth(window.innerWidth);
         };
-    
+
         window.addEventListener('resize', handleResize);
-    
+
         return () => {
-          window.removeEventListener('resize', handleResize);
+            window.removeEventListener('resize', handleResize);
         };
-      }, []);
+    }, []);
 
     const options = [
         {
@@ -99,7 +99,7 @@ const Topbar: React.FunctionComponent<ITopbarProps> = (props) => {
                             aria-expanded={open}
                             className="w-[200px] xl:w-[275px] justify-start gap-x-4 py-6"
                         >
-                            <Image src={"https://s3-alpha-sig.figma.com/img/a66e/3c58/7b925507a17595d38b9654c3a4847f76?Expires=1707696000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=TltuPRkeSLeuGJf3lHF0aIo39MdITVAjzmUdAhuxxOPgShxmQ~nFgho~zUawM5iJtm~NQOZJZ~t~9Tr4noB31FsfZeddI4e2lM3Pt8qKjKhNeyhZcOkyX01GPFFPx-W9vThTZgfK4qYf1VO~f~bD4SIpxg~dohvxm3nnh4p~31KHuslpTYRj7GwLTZRTULGe6P~2jb~wR8yieNYp1znwI1OduogZi15j6CwmtVbo3mD00xJ5A2pqYxVMzb6vZEEjukKQSoskKEjd8WY~ftXiVtcei4IKupc6ScVD9f~u5ATvSYgbh7vuTQFZFb4wgTdV7Kc4drRaVp5bjKkT~8rTug__"} width={720} height={720} alt="Profile Picture" className="w-7 h-7 rounded-md" />
+                            <Image src={profileAvatar} width={720} height={720} alt="Profile Picture" className="w-7 h-7 rounded-md" loading='eager' />
                             <div className="flex flex-col items-start">
                                 <p className="text-gray-600 text-[10px]">Welcome back,</p>
                                 <p className="text-[17px] text-gray-700">Akshita Patel</p>
